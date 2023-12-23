@@ -1,30 +1,22 @@
+import { Availability, Colors, Todo } from "./components/features/card";
 import { FeatureTitle } from "./components/features/title";
 
 const features = [
   {
     title: "Use your calendar as a todo list",
     id: "todo-list",
+    card: Todo
   },
   {
     title: "Color your calendar to organize",
     id: "colors",
+    card: Colors
   },
   {
     title: "Instantly know if someone is available",
     id: "availability",
-  },
-  {
-    title: "Track what you listened to when",
-    id: "music",
-  },
-  {
-    title: "Send scheduling links guests love",
-    id: "scheduling-links",
-  },
-  {
-    title: "Always know what your team is up to",
-    id: "team",
-  },
+    card: Availability
+  }
 ];
 
 function App() {
@@ -44,7 +36,10 @@ function App() {
         </div>
         <div className="sticky top-0 flex h-screen w-full items-center">
           <div className="relative aspect-square w-full rounded-2xl bg-gray-100 [&:has(>_.active-card)]:bg-transparent">
-            div Col
+            {features.map((feature) => (
+              <feature.card key={feature.id} />
+            ))}
+
           </div>
         </div>
       </div>
